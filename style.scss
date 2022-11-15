@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+@mixin section-display{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+@mixin article-features($color){
+    width: clamp(300px, 400px, 500px);
+    padding: 2em;
+    box-shadow: 0px 6px 25px -11px rgba(155, 155, 163, 1);
+    border-top: 5px solid $color;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    transition: 0.2s transform;
+}
+@mixin element-features {
+    &__title{
+        color: $very-dark-blue;
+        margin-bottom: 0.5em;
+    }
+    &__description{
+        color: $grayish-blue;
+        margin-bottom: 4em;
+    }
+    &__img{
+        max-height: 100px;
+        float: right;
+    }
+    &:hover{
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+}
+//Primary
+
+$red: hsl(0, 78%, 62%);
+$cyan: hsl(180, 62%, 55%);
+$orange: hsl(34, 97%, 64%);
+$blue: hsl(212, 86%, 64%);
+
+//Neutral
+$very-dark-blue: hsl(234, 12%, 34%);
+$grayish-blue: hsl(229, 6%, 66%);
+$very-light-gray: hsl(0, 0%, 98%);
+
+//Body Copy
+$font-size: 15px;
+
+//Fonts
+$poppins: 'Poppins', sans-serif;
+
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: $poppins;
+}
+body{
+    padding: 2em 5em;
+    background-color: $very-light-gray;
+    font-size: $font-size;
+    .header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2em 0 0 0;
+        &__title{
+            font-weight: 200;
+            font-size: 2.5em;
+            color: $very-dark-blue;
+            text-align: center;
+            width: clamp(300px, 500px, 1000px);
+            margin-bottom: 0.5em;
+        }
+        &__subtitle{
+            font-weight: 200;
+            font-size: 1.45em;
+            color: $grayish-blue;
+            text-align: center;
+            width: clamp(600px, 42.5%, 1000px);
+        }
+    }
+    .main{
+        padding: 4em 5em 2em 5em;
+        display: flex;
+        justify-content: center;
+        gap: 2em;
+        &__sectionleft{
+            @include section-display;
+            .sectionleft__article{
+                @include article-features($cyan);
+                @include element-features;
+            }
+        }
+        &__sectionmiddle{
+            @include section-display;
+            gap: 2em;
+            .sectionmiddle__articletop{
+                @include article-features($red);
+                @include element-features;
+            }
+            .sectionmiddle__articlebottom{
+                @include article-features($orange);
+                @include element-features;
+            }
+        }
+        &__sectionright{
+            @include section-display;
+            .sectionright__article{
+                @include article-features($blue);
+                @include element-features;
+            }
+        }
+    }
+}
+@media (max-width: 1440px){
+    .main{
+        flex-wrap: wrap;
+        &__sectionleft{
+            height: 100%;
+            order: 1;
+        }
+        &__sectionmiddle{
+            height: 100%;
+            flex-direction: row !important;
+            order: 3;
+        }
+        &__sectionright{
+            height: 100%;
+            order: 2;
+        }
+    }
+}
+@media (max-width: 1166px){
+    .main{
+        &__sectionleft{
+            order: 1;
+            .sectionleft__article{
+                width: 600px !important;
+            }
+        }
+        &__sectionmiddle{
+            flex-direction: column !important;
+            order: 2;
+            .sectionmiddle__articletop{
+                width: 600px !important;
+            }
+            .sectionmiddle__articlebottom{
+                width: 600px !important;
+            }
+        }
+        &__sectionright{
+            order: 3;
+            .sectionright__article{
+                width: 600px !important;
+            }
+        }
+    }
+}
+@media (max-width: 730px){
+    .header{
+        &__title{
+            font-size: 1.75em !important;
+            width: 100% !important;
+        }
+        &__subtitle{
+            width: 100% !important;
+            font-size: 1.25em !important;
+        }
+    }
+    .main{
+        padding: 4em 0 2em 0 !important;
+        &__sectionleft{
+            width: 100% !important;
+            .sectionleft__article{
+                width: 100% !important;
+            }
+        }
+        &__sectionmiddle{
+            .sectionmiddle__articletop{
+                width: 100% !important;
+            }
+            .sectionmiddle__articlebottom{
+                width: 100% !important;
+            }
+        }
+        &__sectionright{
+            .sectionright__article{
+                width: 100% !important;
+            }
+        }
+    }
+}
