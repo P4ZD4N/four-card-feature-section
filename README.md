@@ -20,8 +20,8 @@ This is a solution to the [Four card feature section challenge on Frontend Mento
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/P4ZD4N/four-card-feature-section](https://github.com/P4ZD4N/four-card-feature-section)
+- Live Site URL: [https://wiktorcfourcard.vercel.app/](https://wiktorcfourcard.vercel.app/)
 
 ## My process
 
